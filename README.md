@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# React + Typescript Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal setup to get React working in Vite with HMR (Hot Module Replacement) and some ESLint rules.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  [Key Features](#key-features)
+2.  [Quick Start](#quick-start)
+3.  [Detailed Usage](#detailed-usage)
+4.  [Development Guide](#development-guide)
+5.  [Testing](#testing)
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   **React:** A JavaScript library for building user interfaces.
+*   **TypeScript:** A superset of JavaScript that adds static typing.
+*   **Vite:** A build tool that aims to provide a faster and leaner development experience for modern web projects.
+*   **HMR:** Enables hot reloading during development for faster feedback loops.
+*   **ESLint:** Integrated for code linting to maintain code quality.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Quick Start
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  **Run the Development Server:**
+    ```bash
+    npm run dev
+    ```
+    This will start the Vite development server with HMR enabled. Open your browser to the indicated local URL.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Detailed Usage
+
+*   **Development Server:** `npm run dev` - Starts the development server.
+*   **Build for Production:** `npm run build` - Compiles and bundles the application for production using TypeScript and Vite. The output is placed in the `dist` folder.
+*   **Lint Code:** `npm run lint` - Runs ESLint to check for code style and potential errors.
+*   **Preview Production Build:** `npm run preview` - Starts a local server to preview the production build from the `dist` folder.
+
+## Development Guide
+
+### Code Structure
+
+*   `public/`: Static assets that are served directly.
+*   `src/`: Contains the main application source code (React components, styles, etc.).
+*   `index.html`: The main HTML entry point for the application.
+*   `vite.config.ts`: Configuration file for Vite.
+*   `tsconfig.json`, `tsconfig.node.json`: TypeScript configuration files.
+*   `package.json`: Project metadata and dependencies.
+*   `eslint.config.js`: ESLint configuration.
+
+### Expanding ESLint Configuration
+
+For more robust type-aware linting in production applications, consider updating `eslint.config.js`. Refer to the official ESLint and TypeScript-ESLint documentation for advanced configurations, including rules for React-specific best practices.
+
+## Testing
+
+Currently, this project template does not include a specific testing setup. You can integrate testing frameworks like Vitest, Jest, or React Testing Library based on your project requirements. Add testing scripts to your `package.json` accordingly.
